@@ -1,0 +1,11 @@
+<div class="container">
+	<h1>New Post</h1>
+	<div>
+		<%= simple_form_for @post do |f| %>
+			<%= f.input :title, label: 'Give your post a title' %>
+			<%= f.input :content, label: 'What do you want to say?' %>
+			<%= f.button :submit %>
+		<% end %>
+
+	</div>
+</div>

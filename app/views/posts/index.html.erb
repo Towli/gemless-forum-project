@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>Forum of Life</h1>
+		</div>
+	</div>
+	<div class="container text-center">
+		<ul class="media-list">
+			<% @posts.each do |post| %>
+			<li class="media">
+				<%= render 'post', post: post %>
+			</li>
+				<%= render 'shared/divider' %>
+			<% end %>
+		</ul>
+	</div>
+</div>
