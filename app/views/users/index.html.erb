@@ -1,0 +1,11 @@
+<h1>[users#index] All Users</h1>
+<div class="container">
+	<div class="list-group">
+		<% @users.each do |user| %>
+			<div class="list-group-item">
+				<img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle img-sm">
+				<%= link_to user.full_name, user %>
+			</div>
+		<% end %>
+	</div>
+</div>
