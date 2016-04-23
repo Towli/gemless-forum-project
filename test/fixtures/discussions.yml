@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: discussions
+#
+#  id                 :integer          not null, primary key
+#  subject            :string
+#  replies            :integer
+#  discussion_starter :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: MyString
+  replies: 
+  discussion_starter: MyString
+
+two:
+  subject: MyString
+  replies: 
+  discussion_starter: MyString
