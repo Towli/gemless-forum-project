@@ -1,0 +1,23 @@
+<div class="container">
+
+	<%= render 'users/user_info_card' %>
+
+	<div class="row">
+		<div class="user-card bg-danger col-xs-2">
+			User profile here
+		</div>
+		<div class="recent-discussions bg-info col-xs-9">
+			<h1>Recent Discussions</h1>
+			<ul class="media-list">
+				<% @discussions.each do |discussion| %>
+					<%= render 'shared/divider' %>
+					<li class="media">
+						<%= render 'discussions/discussion', discussion: discussion %>
+					</li>
+					<%= render 'shared/divider' %>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+</div>

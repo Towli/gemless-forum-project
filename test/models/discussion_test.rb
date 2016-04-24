@@ -8,6 +8,7 @@
 #  discussion_starter :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  content            :text
 #
 
 require 'test_helper'

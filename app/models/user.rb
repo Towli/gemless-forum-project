@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, uniqueness: true, length: { maximum: 40 }
 	validates :password, presence: true, length: { minimum: 6 }
 
+	has_many :discussions
+
 	def full_name
 		self.first_name + " " + self.last_name
 	end

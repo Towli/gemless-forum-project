@@ -1,0 +1,9 @@
+<div class="media-body">
+	<%= link_to discussion do %>
+	<h4 class="media-heading">
+		<%= discussion.subject %>
+	</h4> 
+	<p><%= discussion.content %></p>
+	<% end %>
+	<p><%= created_at_humanized(discussion.created_at) %></p>
+</div>
