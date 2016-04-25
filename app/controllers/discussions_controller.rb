@@ -36,6 +36,6 @@ class DiscussionsController < ApplicationController
 	protected
 
 	def discussion_params
-		params.require(:discussion).permit(:subject, :content)
+		params.require(:discussion).permit(:subject, :content).merge(user_id: current_user.id)
 	end
 end

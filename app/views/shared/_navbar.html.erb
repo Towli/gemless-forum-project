@@ -4,18 +4,21 @@
 <nav class="navbar navbar-default" role="navigation">
 	<ul class="forum-actions nav navbar-nav">
 		<li><%= link_to 'Home', root_path %></li>
-		<li><%= link_to 'Create Discussion', new_discussion_path %></li>
+		<% if logged_in? %>
+			<li><%= link_to 'Create Discussion', new_discussion_path %></li>
+		<% end %>
 		<li><%= link_to 'Members', users_path %></li>
 		<li><%= link_to 'Boards' %></li>
 	</ul>
 	<ul class="account-actions nav navbar-nav">
 		<% if logged_in? %>
-			<li><%= link_to "Profile", @current_user %></li>
 			<li><%= link_to "Logged in as #{@current_user.first_name}" %></li>
+			<li><%= link_to "Profile", @current_user %></li>
+			<li><%= link_to "My Discussions" %></li>
 			<li><%= link_to "Sign out", sign_out_path %></li>
 		<% else %>
-			<li><%= link_to 'Register', new_user_path %></li>
 			<li><%= link_to "Sign in", sign_in_path %></li>
+			<li><%= link_to 'Register', new_user_path %></li>
 		<% end %>
 	</ul>
 </nav>

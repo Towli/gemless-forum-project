@@ -1,18 +1,25 @@
 <div class="container">
 
-	<%= render 'users/user_info_card' %>
-
 	<div class="row">
+		<!-- TODO: place user-card in a partial -->
 		<div class="user-card bg-danger col-xs-2">
 			<% if logged_in? %>
-				 <%= @current_user.full_name %>
+				 <h4><%= @current_user.full_name %></h4>
+				 <img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle img-sm">
+				 <p>Join date: <%= @current_user.created_at %></p>
+				 <p>Discussions created: 0</p>
+				 <p>Community score: 0</p>
+				 <p>Starred Discussion: </p>
+			 <% else %>
+				<h4><button><%= link_to "Log in", sign_in_path %></button></h4>
 			<% end %>
 		</div>
+		<!-- 									-->
 		<div class="recent-discussions bg-info col-xs-9">
 			<h1>Recent Discussions</h1>
+						<%= render 'shared/divider' %>
 			<ul class="media-list">
 				<% @discussions.each do |discussion| %>
-					<%= render 'shared/divider' %>
 					<li class="media">
 						<%= render 'discussions/discussion', discussion: discussion %>
 					</li>
