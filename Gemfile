@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'simple_form'
 gem 'pg'
+gem 'exception_notification'
+gem 'slack-notifier'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
