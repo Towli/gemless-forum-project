@@ -1,5 +1,7 @@
 <div class="container text-center">
-	<%= link_to "Edit", edit_user_path, class: 'btn btn-primary' %>
+	<% if profile_owner? @user %>
+		<%= link_to "Edit", edit_user_path, class: 'btn btn-primary' %>
+	<% end %>
 	<h1><%= @user.full_name %></h1>
 	<img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle" > 
 	<p><%= @user.email %></p>

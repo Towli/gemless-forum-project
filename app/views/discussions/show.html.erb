@@ -4,7 +4,17 @@
 	</h4> 
 	<hr>
 	<p><%= @discussion.content %></p>
-	<div>
-		<%= link_to 'Delete', discussion_path, data: { confirm: 'Are you sure?' }, method: :delete %>
+	<div class="discussion-actions">
+		<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary' ,data: { confirm: 'Are you sure?' }, method: :delete %></button>
+		<%= link_to 'EDIT', edit_discussion_path, class: 'btn btn-primary' %>
 	</div>
+	<hr>
+	<div class="discussion-post-form">
+		<h4>Reply to this discussion</h4>
+		<%= simple_form_for :post, url: posts_path do |f| %>
+		<%= f.input :content, as: :text %>
+		<%= f.button :submit, 'Reply to Discussion' %>
+		<% end %>
+	</div>
+
 </div>

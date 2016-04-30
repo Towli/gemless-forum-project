@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Account created successfully."
 			redirect_to @user
 		else
-			flash[:error] = "There was a problem creating your account. Please try again."
+			flash[:danger] = "There was a problem creating your account. Please try again."
 			render 'new'
 		end
 	end
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by(id: params[:id])
+		unless profile_owner? @user
+			flash[:danger] = "You're not authorised to access that."
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
 			flash[:success] = "Profile updated successfully."
 			redirect_to @user
 		else
-			flash[:error] = "There was a problem updating your profile. Please try again."
+			flash[:danger] = "There was a problem updating your profile. Please try again."
 			render 'edit'
 		end
 	end

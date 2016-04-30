@@ -14,3 +14,25 @@
 	margin-left: 50px;
 	text-align: center;
 }
+
+.discussion-post-form {
+	margin: auto;
+	width: 500px;
+
+	textarea {
+		resize: vertical;
+	}
+
+	h4 {
+		font-weight: 300;
+		color: grey;
+	}
+
+}
+
+.discussion-actions {
+	border-style: 1px solid;
+	a {
+		padding: 0 2em;
+	}
+}
