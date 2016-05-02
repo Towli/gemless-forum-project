@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.logo {
+	margin-top: 75px;
+	h1 {
+		font-size: 66px;
+	}
+}
+
+.main {
+	margin-top: 75px;
+}
+
 .user-card {
 	height: 200px;
 	text-align: center;
@@ -10,7 +21,7 @@
 	}
 }
 
-.recent-discussions {
+.discussions-list {
 	margin-left: 50px;
 	text-align: center;
 }

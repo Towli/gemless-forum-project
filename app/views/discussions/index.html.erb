@@ -1,6 +1,8 @@
 <div class="container">
-
-	<div class="row">
+	<div class="logo text-center">
+		<h1><%= link_to 'project_forum', root_path %></h1>
+	</div>
+	<div class="row main">
 		<!-- TODO: place user-card in a partial -->
 		<div class="user-card bg-danger col-xs-2">
 			<% if logged_in? %>
@@ -15,8 +17,8 @@
 			<% end %>
 		</div>
 		<!-- 									-->
-		<div class="recent-discussions bg-info col-xs-9">
-			<h1>Recent Discussions</h1>
+		<div class="discussions-list col-xs-9">
+			<h1>Discussions</h1>
 						<%= render 'shared/divider' %>
 			<ul class="media-list">
 				<% @discussions.each do |discussion| %>

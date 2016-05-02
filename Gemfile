@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'pg'
 gem 'exception_notification'
 gem 'slack-notifier'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

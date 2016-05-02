@@ -1,9 +1,10 @@
-<div class="logo">
-	<h1><%= link_to 'project_forum', root_path %></h1>
-</div>
 <nav class="navbar navbar-default" role="navigation">
 	<ul class="forum-actions nav navbar-nav">
-		<li><%= link_to 'Home', root_path %></li>
+		<li>
+			<%= link_to(root_path) do %>
+				<span class="glyphicon glyphicon-home"></span>
+			<% end %>
+		</li>
 		<% if logged_in? %>
 			<li><%= link_to 'Create Discussion', new_discussion_path %></li>
 		<% end %>
