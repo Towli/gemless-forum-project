@@ -1,4 +1,20 @@
 .navbar {
+	background-color: $grey;
+}
+
+.glyphicon-home {
+	font-size: 20px;
+}
+
+.navbar-default .navbar-nav > li {
+	
+	a {
+		color: white;
+	}
+
+	a:hover {
+	    color: $brand-primary;
+	}
 }
 
 .forum-actions {

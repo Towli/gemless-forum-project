@@ -1,11 +1,11 @@
-<div class="media-body">
-	<p>Author: <%= link_to discussion.user.full_name, discussion.user %></p>
-	<p><img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle img-sm"></p>
-	<%= link_to discussion do %>
-	<h4 class="media-heading">
-		<%= discussion.subject %>
-	</h4> 
-	<p><%= discussion.content %></p>
-	<% end %>
+<td>
+	<p><%= link_to discussion.user.full_name, discussion.user %></p>
+	<img src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" class="img-circle img-sm">
+</td>
+<td>
+	<p><%= link_to discussion.subject, discussion_path(discussion) %></p>
+	<p><%= truncate(discussion.content, length: 40) %></p>
+</td>
+<td>
 	<p><%= created_at_humanized(discussion.created_at) %></p>
-</div>
+</td>

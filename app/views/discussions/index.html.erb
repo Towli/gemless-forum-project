@@ -1,34 +1,37 @@
-<div class="container">
-	<div class="logo text-center">
-		<h1><%= link_to 'project_forum', root_path %></h1>
-	</div>
-	<div class="row main">
-		<!-- TODO: place user-card in a partial -->
-		<div class="user-card bg-danger col-xs-2">
+<div class="logo text-center">
+	<h1><%= link_to 'project_forum', root_path %></h1>
+</div>
+	<!-- TODO: place user-card in a partial -->
+	<div class="user-area">
+		<div class="user-card">
 			<% if logged_in? %>
-				 <h4><%= @current_user.full_name %></h4>
-				 <img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle img-sm">
+				 <h4><%= link_to @current_user.full_name %></h4>
 				 <p>Join date: <%= @current_user.created_at %></p>
 				 <p>Discussions created: <%= amount_of_discussions_created @current_user %></p>
 				 <p>Community score: 0</p>
-				 <p><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %></p>
+				 <% if @current_user.discussions.present? %>
+				 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
+				 <% end %>
 			 <% else %>
 				<h4><button><%= link_to "Log in", sign_in_path %></button></h4>
 			<% end %>
 		</div>
-		<!-- 									-->
-		<div class="discussions-list col-xs-9">
-			<h1>Discussions</h1>
-						<%= render 'shared/divider' %>
-			<ul class="media-list">
-				<% @discussions.each do |discussion| %>
-					<li class="media">
-						<%= render 'discussions/discussion', discussion: discussion %>
-					</li>
-					<%= render 'shared/divider' %>
-				<% end %>
-			</ul>
-		</div>
 	</div>
-
-</div>
+	<!-- 									-->
+	<div class="discussions-list">
+		<h1>Topics</h1>
+		<table class="table">
+			<thead class="thead">
+				<th>Author</th>
+				<th>Subject</th>
+				<th>Date Posted</th>
+			</thead>
+			<tbody>
+				<% @discussions.each do |discussion| %>
+					<tr>
+						<%= render 'discussions/discussion', discussion: discussion %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>

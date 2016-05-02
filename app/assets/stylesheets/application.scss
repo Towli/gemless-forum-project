@@ -1,6 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "variables";
+@import url(https://fonts.googleapis.com/css?family=Alegreya);
+
 @import "body";
 @import "discussions";
 @import "footer";
