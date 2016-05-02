@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'discussions#index'
   
   resources :posts
-  resources :users
+  resources :users do
+    get 'discussions' => 'user_discussions#index'
+  end
   resources :discussions do
   	member do
   		delete :destroy
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
 
   get 		'sign_in'	 => 'sessions#new'
   post 		'sign_in'	 => 'sessions#create'
-  get 	'sign_out'	 => 'sessions#destroy'
+  get 	  'sign_out' => 'sessions#destroy'
 
 end

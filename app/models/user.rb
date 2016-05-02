@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 6 }
 
 	has_many :discussions
+	has_many :posts
 
 	def full_name
 		self.first_name + " " + self.last_name

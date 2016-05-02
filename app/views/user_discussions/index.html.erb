@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="recent-discussions bg-info text-center">
+			<h1>My Discussions</h1>
+			<% if @discussions.empty? %>
+				<p>You have not started any discussions yet.</p>
+				<%= link_to 'Start a Discussion', new_discussion_path %>
+			<% end %>
+			<ul class="media-list">
+				<% @discussions.each do |discussion| %>
+					<li class="media">
+						<%= render 'shared/divider' %>
+						<%= render 'discussions/discussion', discussion: discussion %>
+					</li>
+				<% end %>
+			</ul>
+	</div>
+</div>

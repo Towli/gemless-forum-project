@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:success] = "Account created successfully."
+			log_in @user
 			redirect_to @user
 		else
 			flash[:danger] = "There was a problem creating your account. Please try again."

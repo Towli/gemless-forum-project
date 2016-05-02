@@ -1,10 +1,11 @@
 <div class="container">
-	<h1>Create a Discussion</h1>
+	<h1>Edit Your Discussion</h1>
 	<div>
 		<%= simple_form_for @discussion do |f| %>
 			<%= f.input :subject, label: 'Give your discussion a title' %>
 			<%= f.input :content, label: 'What do you want to say?' %>
 			<%= f.button :submit %>
 		<% end %>
+
 	</div>
 </div>

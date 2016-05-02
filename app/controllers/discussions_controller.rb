@@ -26,11 +26,26 @@ class DiscussionsController < ApplicationController
 		@discussion = Discussion.find(params[:id])
 		if @discussion.destroy!
 			flash[:success] = 'Discussion successfully deleted'
-			render 'new', notice: 'Discussion deleted'
+			redirect_to root_path, notice: 'Discussion deleted'
 		else
 			flash[:failure] = 'Error deleting discussion'
 			render 'new'
 		end
+	end
+
+	def update
+		@discussion = Discussion.find(params[:id])
+		if @discussion.update_attributes(discussion_params)
+			flash[:success] = 'Discussion successfully updated'
+			redirect_to @discussion
+		else
+			flash[:failure] = 'Failed to update discussion, please try again'
+			render 'new'
+		end
+	end
+
+	def edit
+		@discussion = Discussion.find(params[:id])
 	end
 
 	protected
