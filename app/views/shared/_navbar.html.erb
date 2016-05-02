@@ -10,6 +10,10 @@
 		<% end %>
 		<li><%= link_to 'Members', users_path %></li>
 		<li><%= link_to 'Boards' %></li>
+		<% if logged_in? %>
+			<li><%= link_to "Profile", @current_user %></li>
+			<li><%= link_to "My Discussions", user_discussions_path(@current_user) %></li>
+		<% end %>
 	</ul>
 	<ul class="account-actions nav navbar-nav">
 		<% if logged_in? %>
@@ -19,8 +23,6 @@
 					Logged in as <%= current_user.first_name %>
 				<% end %>
 			</li>
-			<li><%= link_to "Profile", @current_user %></li>
-			<li><%= link_to "My Discussions", user_discussions_path(@current_user) %></li>
 			<li><%= link_to "Sign out", sign_out_path %></li>
 		<% else %>
 			<li><%= link_to "Sign in", sign_in_path %></li>

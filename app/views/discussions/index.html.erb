@@ -13,7 +13,8 @@
 				 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
 				 <% end %>
 			 <% else %>
-				<h4><button><%= link_to "Log in", sign_in_path %></button></h4>
+			 	<span class="glyphicon glyphicon-share-alt"></span>
+				<h4><%= link_to "Log in for User card", sign_in_path %></h4>
 			<% end %>
 		</div>
 	</div>
