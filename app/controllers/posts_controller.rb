@@ -19,11 +19,10 @@ def destroy
 end
 
 def create
-	@discussion = Discussion.find(params[:discussion_id])
-	@post = @discussion.posts.new(post_params)
+	@post = Post.new(post_params_with_discussion_id)
 	if @post.save
 		flash[:success] = 'Post successfully created'
-		redirect_to @discussion
+		redirect_to @discussion = Discussion.find(params[:discussion_id])
 	else
 		flash[:failure] = 'Failed to create post, please try again'
 		render 'new'
@@ -38,6 +37,10 @@ end
 
 def post_params_with_current_user
 	post_params.merge(user_id: current_user.id)
+end
+
+def post_params_with_discussion_id
+	post_params_with_current_user.merge(discussion_id: params[:discussion_id])
 end
 
 end

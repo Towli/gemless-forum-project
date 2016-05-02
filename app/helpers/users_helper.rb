@@ -9,4 +9,14 @@ module UsersHelper
 		current_user == user
 	end
 
+	def amount_of_discussions_created user
+		user.discussions.count
+	end
+
+	# Currently, just looks for the discussion with the largest
+	# amount of replies
+	def starred_discussion user
+		user.discussions.order('replies DESC').first
+	end
+
 end

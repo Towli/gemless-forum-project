@@ -1,5 +1,6 @@
 <div class="media-body">
 	<div class="post-container">
+		<p><%= link_to post.user.full_name, user_path(post.user) %></p>
 		<h4 class="media-heading">
 			<%= post.title %>
 		</h4> 

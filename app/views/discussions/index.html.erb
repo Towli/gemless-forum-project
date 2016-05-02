@@ -7,9 +7,9 @@
 				 <h4><%= @current_user.full_name %></h4>
 				 <img src="https://scontent.xx.fbcdn.net/hphotos-xaf1/v/t1.0-0/p206x206/1975089_10152591932351356_7418500934588913605_n.jpg?oh=4174715575baee63bb2c10dc6911910a&oe=57BF6CE2" class="img-circle img-sm">
 				 <p>Join date: <%= @current_user.created_at %></p>
-				 <p>Discussions created: 0</p>
+				 <p>Discussions created: <%= amount_of_discussions_created @current_user %></p>
 				 <p>Community score: 0</p>
-				 <p>Starred Discussion: </p>
+				 <p><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %></p>
 			 <% else %>
 				<h4><button><%= link_to "Log in", sign_in_path %></button></h4>
 			<% end %>
