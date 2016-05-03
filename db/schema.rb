@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502083135) do
+ActiveRecord::Schema.define(version: 20160503035357) do
 
   create_table "discussions", force: :cascade do |t|
     t.string   "subject"
-    t.integer  "replies"
+    t.integer  "replies",            default: 0
     t.string   "discussion_starter"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.text     "content"
     t.integer  "user_id"
   end
