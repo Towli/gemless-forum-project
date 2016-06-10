@@ -9,6 +9,10 @@ module UsersHelper
 		current_user == user
 	end
 
+	def post_owner? user
+		current_user == user
+	end
+
 	def amount_of_discussions_created user
 		user.discussions.count
 	end

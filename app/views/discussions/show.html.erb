@@ -26,6 +26,8 @@
 
 <div class="discussion-posts">
 	<% @discussion.posts.each do |post| %>
-		<%= render 'posts/post', post: post %>
+		<% if post.parent_post_id.nil? %>
+			<%= render 'posts/post', post: post %>
+		<% end %>
 	<% end %>
 </div>

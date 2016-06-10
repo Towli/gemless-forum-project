@@ -5,17 +5,23 @@
 	</h4> 
 	<p><%= post.content %></p>
 	<div class="discussion-post-actions">
-		<p><a>Reply</a>
+		<p><a class="reply-link" id="<%= post.id %>">Reply</a></p>
 		<% if post_owner? post.user %>
 			<%= link_to 'Delete', post_path(id: post.id), data: { confirm: 'Are you sure?' }, method: :delete %>
 		<% end %></p>
 	</div>
-	<div class="post-reply-form">
+	<div class="post-reply-form" id="<%= post.id %>">
 		<h4>Reply</h4>
-		<%= simple_form_for :post, url: posts_path(post_id: post.id, reply: 'true') do |f| %>
+		<%= simple_form_for :reply, url: replies_path(discussion_id: @discussion.id, post_id: post.id) do |f| %>
 			<%= f.input :content, as: :text, placeholder: 'Reply to this post' %>
 			<%= f.button :submit, 'Reply to Post' %>
 		<% end %>
 	</div>
+
+	<% if post.replies.any? %>
+		<% post.replies.each_with_index do |reply, count| %>
+			<%= render 'replies/reply', reply: reply, background_colour_counter: count %>
+		<% end %>
+	<% end %>
 </div>
 <hr>

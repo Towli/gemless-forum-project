@@ -4,7 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  subject            :string
-#  replies            :integer
+#  replies            :integer          default("0")
 #  discussion_starter :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

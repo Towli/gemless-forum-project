@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :replies, only: [:create, :destroy]
+
   get 		'sign_in'	 => 'sessions#new'
   post 		'sign_in'	 => 'sessions#create'
   get 	  'sign_out' => 'sessions#destroy'

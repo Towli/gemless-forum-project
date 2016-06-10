@@ -1,0 +1,34 @@
+<div class=<% if background_colour_counter.even? %> 
+				"alt-post-reply-container"
+				<% else %>
+				"post-reply-container"
+		   <% end %>
+	<p><img src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" class="img-circle img-sm"> <%= link_to reply.user.full_name, user_path(reply.user) %> | <%= created_at_humanized(reply.created_at) %></p>
+	<h4 class="media-heading">
+		<%= reply.title %>
+	</h4> 
+	<p><%= reply.content %></p>
+	<div class="discussion-post-actions">
+		<p><a class="reply-link" id="<%= reply.id %>">Reply</a></p>
+		<% if post_owner? reply.user %>
+			<!-- TODO: THIS LINK -->
+			<%= link_to 'Delete', post_path(id: reply.id), data: { confirm: 'Are you sure?' }, method: :delete %>
+		<% end %></p>
+	</div>
+	<div class="post-reply-form" id="<%= reply.id %>">
+		<h4>Reply</h4>
+		<%= simple_form_for :reply, url: replies_path(discussion_id: @discussion.id, post_id: reply.id) do |f| %>
+			<%= f.input :content, as: :text, placeholder: 'Reply to this post' %>
+			<%= f.button :submit, 'Reply to Post' %>
+		<% end %>
+	</div>
+
+	<div>
+		<% if reply.replies.any? %>
+			<% reply.replies.each_with_index do |reply, count| %>
+				<%= render 'replies/reply', reply: reply, background_colour_counter: count %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<hr>

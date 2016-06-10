@@ -1,0 +1,28 @@
+// Place all the styles related to the replies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-reply-container {
+	background-color: #d9edf7;
+	padding: 2em;
+	width: 90%;
+	margin: auto;
+}
+
+.alt-post-reply-container {
+	border-left: solid 2px #FF7C44;
+	background-color: #DADFF8;
+	padding: 2em;
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.post-reply-form {
+	display: none;
+	margin: auto;
+	with: 600px;
+	h2 {
+		margin-top: 10px;
+	}
+}
