@@ -1,11 +1,21 @@
-<div class="media-body">
-	<div class="post-container">
-		<p><%= link_to post.user.full_name, user_path(post.user) %></p>
-		<h4 class="media-heading">
-			<%= post.title %>
-		</h4> 
-		<p><%= post.content %></p>
-		<p><%= created_at_humanized(post.created_at) %></p>
+<div class="post-container">
+	<p><img src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" class="img-circle img-sm"> <%= link_to post.user.full_name, user_path(post.user) %> | <%= created_at_humanized(post.created_at) %></p>
+	<h4 class="media-heading">
+		<%= post.title %>
+	</h4> 
+	<p><%= post.content %></p>
+	<div class="discussion-post-actions">
+		<p><a>Reply</a>
+		<% if post_owner? post.user %>
+			<%= link_to 'Delete', post_path(id: post.id), data: { confirm: 'Are you sure?' }, method: :delete %>
+		<% end %></p>
 	</div>
-	<hr>
+	<div class="post-reply-form">
+		<h4>Reply</h4>
+		<%= simple_form_for :post, url: posts_path(post_id: post.id, reply: 'true') do |f| %>
+			<%= f.input :content, as: :text, placeholder: 'Reply to this post' %>
+			<%= f.button :submit, 'Reply to Post' %>
+		<% end %>
+	</div>
 </div>
+<hr>

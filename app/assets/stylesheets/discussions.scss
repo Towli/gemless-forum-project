@@ -93,7 +93,26 @@
 }
 
 .discussion-container {
+	margin: auto;
+	text-align: center;
+	width: 800px;
 	background-color: #d9edf7;
+	padding: 2em;
+}
+
+.discussion-post-form {
+	margin: auto;
+	margin-top: 30px;
+	background-color: $grey;
+	with: 600px;
+	padding: 2em;
+	h2 {
+		margin-top: 10px;
+	}
+}
+
+.discussion-posts {
+	margin-top: 30px;
 	padding: 2em;
 }
 

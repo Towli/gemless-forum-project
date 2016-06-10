@@ -1,27 +1,31 @@
-<div class="container text-center">
-	<div class="discussion-container">
-		<h4>
+<div class="discussion-container">
+	<div class="discussion-header">
+		<h2>
 			<%= @discussion.subject %>
-		</h4> 
-		<hr>
+		</h2> 
+		<p>Started <%= created_at_humanized(@discussion.created_at) %> | By <%= link_to @discussion.user.full_name %> </p>
+	<hr>
+	</div>
+	<div class="discussion-body">
 		<p><%= @discussion.content %></p>
 		<div class="discussion-actions">
-			<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary' ,data: { confirm: 'Are you sure?' }, method: :delete %></button>
+			<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary', data: { confirm: 'Are you sure?' }, method: :delete %></button>
 			<%= link_to 'EDIT', edit_discussion_path, class: 'btn btn-primary' %>
 		</div>
-		<hr>
-		<div class="discussion-posts">
-			<% @discussion.posts.each do |post| %>
-				<%= render 'posts/post', post: post %>
-			<% end %>
-		</div>
-		<hr>
-		<div class="discussion-post-form">
-			<h4>Reply to this discussion</h4>
-			<%= simple_form_for :post, url: posts_path(discussion_id: @discussion.id) do |f| %>
-			<%= f.input :content, as: :text %>
-			<%= f.button :submit, 'Reply to Discussion' %>
-			<% end %>
-		</div>
 	</div>
+	<hr>
+</div>
+
+<div class="discussion-post-form">
+	<h2>Discuss</h2>
+	<%= simple_form_for :post, url: posts_path(discussion_id: @discussion.id) do |f| %>
+		<%= f.input :content, as: :text, placeholder: 'Reply to this discussion' %>
+		<%= f.button :submit, 'Reply to Discussion' %>
+	<% end %>
+</div>
+
+<div class="discussion-posts">
+	<% @discussion.posts.each do |post| %>
+		<%= render 'posts/post', post: post %>
+	<% end %>
 </div>
