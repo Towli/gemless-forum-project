@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post-reply-container {
-	background-color: #d9edf7;
+	border-left: solid 2px #FF7C44;
+	background-color: #fff;
 	padding: 2em;
 	width: 90%;
 	margin: auto;
@@ -11,7 +12,8 @@
 
 .alt-post-reply-container {
 	border-left: solid 2px #FF7C44;
-	background-color: #DADFF8;
+	//background-color: #DADFF8;
+	background-color: #efefef;
 	padding: 2em;
 	width: 90%;
 	margin: auto;

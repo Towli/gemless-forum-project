@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .post-container {
-	background-color: #DADFF8;
+	//background-color: #DADFF8;
+	border-left: solid 2px #FF7C44;
+	background-color: #efefef;
 	padding: 2em;
 	width: 60%;
 	margin: auto;
@@ -15,4 +17,8 @@
 	h2 {
 		margin-top: 10px;
 	}
+}
+
+.reply-link {
+	margin: 0 10px 0 0;
 }

@@ -1,4 +1,4 @@
-<div class=<% if background_colour_counter.even? %> 
+<div class=<% if alt_background_colour == false %> 
 				"alt-post-reply-container"
 				<% else %>
 				"post-reply-container"
@@ -9,7 +9,7 @@
 	</h4> 
 	<p><%= reply.content %></p>
 	<div class="discussion-post-actions">
-		<p><a class="reply-link" id="<%= reply.id %>">Reply</a></p>
+		<a class="reply-link" id="<%= reply.id %>">Reply</a>
 		<% if post_owner? reply.user %>
 			<!-- TODO: THIS LINK -->
 			<%= link_to 'Delete', post_path(id: reply.id), data: { confirm: 'Are you sure?' }, method: :delete %>
@@ -25,8 +25,12 @@
 
 	<div>
 		<% if reply.replies.any? %>
-			<% reply.replies.each_with_index do |reply, count| %>
-				<%= render 'replies/reply', reply: reply, background_colour_counter: count %>
+			<% reply.replies.each do |reply| %>
+				<% if alt_background_colour == true %>
+					<%= render 'replies/reply', reply: reply, alt_background_colour: false %>
+				<% else %>
+					<%= render 'replies/reply', reply: reply, alt_background_colour: true %>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>

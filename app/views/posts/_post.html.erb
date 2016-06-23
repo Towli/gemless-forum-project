@@ -5,7 +5,7 @@
 	</h4> 
 	<p><%= post.content %></p>
 	<div class="discussion-post-actions">
-		<p><a class="reply-link" id="<%= post.id %>">Reply</a></p>
+		<a class="reply-link" id="<%= post.id %>">Reply</a>
 		<% if post_owner? post.user %>
 			<%= link_to 'Delete', post_path(id: post.id), data: { confirm: 'Are you sure?' }, method: :delete %>
 		<% end %></p>
@@ -19,8 +19,8 @@
 	</div>
 
 	<% if post.replies.any? %>
-		<% post.replies.each_with_index do |reply, count| %>
-			<%= render 'replies/reply', reply: reply, background_colour_counter: count %>
+		<% post.replies.each do |reply| %>
+			<%= render 'replies/reply', reply: reply, alt_background_colour: true %>
 		<% end %>
 	<% end %>
 </div>
