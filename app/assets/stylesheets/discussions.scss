@@ -72,8 +72,11 @@
 
 .discussion-actions {
 	border-style: 1px solid;
-	a {
-		padding: 0 2em;
+	.action {
+		width: 160px;
+		padding: 0 1em;
+		display: inline;
+		margin: auto;
 	}
 }
 

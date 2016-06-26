@@ -10,8 +10,14 @@
 		<p><%= @discussion.content %></p>
 		<% if discussion_owner? @discussion.user %>
 			<div class="discussion-actions">
-				<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary', data: { confirm: 'Are you sure?' }, method: :delete %></button>
-				<%= link_to 'EDIT', edit_discussion_path, class: 'btn btn-primary' %>
+				<div class="action">
+					<%= link_to 'Delete', discussion_path, class: 'btn-destroy', data: { confirm: 'Are you sure?' }, method: :delete %></button>
+					<span class="glyphicon glyphicon-remove"></span>
+				</div>	
+				<div class="action">
+					<%= link_to 'Edit', edit_discussion_path, class: 'btn-edit' %>
+					<span class="glyphicon glyphicon-pencil"></span>
+				</div>
 			</div>
 		<% end %>
 	</div>
