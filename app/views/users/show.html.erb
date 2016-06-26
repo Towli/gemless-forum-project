@@ -1,6 +1,6 @@
 <div class="profile-container">
 	<% if profile_owner? @user %>
-		<%= link_to "Edit", edit_user_path, class: 'user-edit' %>
+		<%= link_to "Edit", edit_user_path, class: 'btn-edit' %>
 		<span class="glyphicon glyphicon-pencil"></span>
 	<% end %>
 	<h1><%= @user.full_name %></h1>

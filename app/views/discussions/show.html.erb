@@ -8,10 +8,12 @@
 	</div>
 	<div class="discussion-body">
 		<p><%= @discussion.content %></p>
-		<div class="discussion-actions">
-			<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary', data: { confirm: 'Are you sure?' }, method: :delete %></button>
-			<%= link_to 'EDIT', edit_discussion_path, class: 'btn btn-primary' %>
-		</div>
+		<% if discussion_owner? @discussion.user %>
+			<div class="discussion-actions">
+				<%= link_to 'DELETE', discussion_path, class: 'btn btn-primary', data: { confirm: 'Are you sure?' }, method: :delete %></button>
+				<%= link_to 'EDIT', edit_discussion_path, class: 'btn btn-primary' %>
+			</div>
+		<% end %>
 	</div>
 	<hr>
 </div>
