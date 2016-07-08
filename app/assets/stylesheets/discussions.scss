@@ -2,16 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.logo {
+.pg-title {
 	margin-top: 75px;
 	margin-bottom: 75px;
-	h1 {
-		font-size: 66px;
+	color: $brand-primary;
+	text-align: center;
+
+	font-size: 65px;
+	
+	@include app-md {
+		font-size: 55px;
 	}
-	a {
-		color: $brand-primary;
+	@include app-xs {
+		font-size: 50px;
 	}
-	a:hover {
+
+	&:hover {
 		text-decoration: overline;
 	}
 }

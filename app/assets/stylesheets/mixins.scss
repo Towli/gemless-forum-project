@@ -4,3 +4,27 @@
 	color: $brand-primary;
 	font-size: 24px;
 }
+
+@mixin app-xxs {
+	@media (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin app-xs {
+	@media (max-width: 425px) {
+		@content;
+	}
+}
+
+@mixin app-md {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin app-lg {
+	@media (max-width: 1024px) {
+		@content;
+	}
+}

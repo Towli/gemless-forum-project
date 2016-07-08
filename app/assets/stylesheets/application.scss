@@ -3,7 +3,7 @@
 
 @import "variables";
 @import url(https://fonts.googleapis.com/css?family=Alegreya);
-
+@import "mixins";
 @import "body";
 @import "discussions";
 @import "footer";
@@ -16,6 +16,6 @@
 @import "users";
 @import "divider";
 
-@import "mixins";
+
 
 @import "partials/_buttons";
