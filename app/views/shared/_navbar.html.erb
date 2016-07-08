@@ -1,32 +1,42 @@
-<nav class="navbar navbar-default" role="navigation">
-	<ul class="forum-actions nav navbar-nav">
-		<li>
-			<%= link_to(root_path) do %>
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-items">
+		        <span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+			</button>
+			<%= link_to(root_path, class: 'navbar-brand') do %>
 				<span class="glyphicon glyphicon-home"></span>
 			<% end %>
-		</li>
-		<% if logged_in? %>
-			<li><%= link_to 'Create Discussion', new_discussion_path %></li>
-		<% end %>
-		<li><%= link_to 'Members', users_path %></li>
-		<li class="WIP"><%= link_to 'Boards' %></li>
-		<% if logged_in? %>
-			<li><%= link_to "Profile", @current_user %></li>
-			<li><%= link_to "My Discussions", user_discussions_path(@current_user) %></li>
-		<% end %>
-	</ul>
-	<ul class="account-actions nav navbar-nav">
-		<% if logged_in? %>
-			<li>
-				<%= link_to user_path(@current_user) do %>
-					<span class="glyphicon glyphicon-user"></span>
-					Logged in as <%= current_user.first_name %>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-items">
+			<ul class="forum-actions">
+				<% if logged_in? %>
+					<li><%= link_to 'Create Discussion', new_discussion_path %></li>
 				<% end %>
-			</li>
-			<li><%= link_to "Sign out", sign_out_path %></li>
-		<% else %>
-			<li><%= link_to "Sign in", sign_in_path %></li>
-			<li><%= link_to 'Register', new_user_path %></li>
-		<% end %>
-	</ul>
+				<li><%= link_to 'Members', users_path %></li>
+				<li class="WIP"><%= link_to 'Boards' %></li>
+				<% if logged_in? %>
+					<li><%= link_to "Profile", @current_user %></li>
+					<li><%= link_to "My Discussions", user_discussions_path(@current_user) %></li>
+				<% end %>
+			</ul>
+			<ul class="account-actions">
+				<% if logged_in? %>
+					<li>
+						<%= link_to user_path(@current_user) do %>
+							<span class="glyphicon glyphicon-user"></span>
+							Logged in as <%= current_user.first_name %>
+						<% end %>
+					</li>
+					<li><%= link_to "Sign out", sign_out_path %></li>
+				<% else %>
+					<li><%= link_to "Sign in", sign_in_path %></li>
+					<li><%= link_to 'Register', new_user_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
 </nav>
