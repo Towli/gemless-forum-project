@@ -26,12 +26,6 @@
 	margin-top: 75px;
 }
 
-.user-area {
-	width: 100%;
-	background-color: $brand-primary;
-	padding: 20px;
-}
-
 .user-card {
 	margin: auto;
 	padding: 20px;
@@ -57,15 +51,11 @@
 }	
 
 .discussions-list {
-	h1 {
-		color: $dark-grey;
-	}
-	width: 80%;
-	margin: auto;
-	margin-top: 75px;
+	margin-top: $general-content-margin;
+	margin-bottom: $general-content-margin;
+	@include make-md-column(10);
+	@include make-md-column-offset(1);
 	text-align: center;
-	padding: 20px;
-
 	table > thead > tr > th {
 		color: $dark-grey;
 		text-align: center;
@@ -73,7 +63,6 @@
 	p {
 		color: $dark-grey;
 	}
-
 }
 
 .discussion-actions {

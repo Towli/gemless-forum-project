@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'discussions#index'
+  root 'landing#home'
   
   resources :posts
   resources :users do

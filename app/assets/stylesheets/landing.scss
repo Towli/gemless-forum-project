@@ -1,0 +1,30 @@
+.container {
+	@include container-fixed();
+}
+
+.header-row {
+	margin-top: $general-content-margin;
+	margin-bottom: $xl-content-margin;
+	@include make-row();
+}
+
+.authenticated-pg-title {
+	@include make-md-column(6);
+	@include make-md-column-offset(2);
+	font-size: 90px; //hardcoded
+}
+
+.authenticated-user-area {
+	@include make-md-column(2);
+	background-color: inherit;
+}
+
+.unauthenticated-user-area {
+	width: 100%;
+	background-color: $brand-primary;
+	padding: 20px;
+}
+
+.user-card-alt {
+	text-align: center;
+}

@@ -1,11 +1,19 @@
 .btn-create {
+	@extend .btn;
 	@include btn-primary;
 }
 
 .btn-edit {
+	@extend .btn;
 	@include btn-primary;
 }
 
 .btn-destroy {
+	@extend .btn;
 	@include btn-primary;
+}
+
+.btn-search {
+	@extend .btn;
+	@include btn-primary
 }

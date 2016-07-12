@@ -1,8 +1,22 @@
+@mixin btn {
+    padding: 5px 10px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    &:hover {
+    	background-color: $brand-primary;
+    	color: $grey;
+    }
+}
+
 @mixin btn-primary {
-	border: none;
-	background: none;
+	@include btn;
 	color: $brand-primary;
-	font-size: 24px;
+}
+
+@mixin btn-secondary {
+	//TODO
 }
 
 @mixin app-xxs {

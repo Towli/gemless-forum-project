@@ -1,0 +1,38 @@
+	<h1 class="pg-title"><%= link_to 'project_forum', root_path %></h1>
+	<!-- TODO: place user-card in a partial -->
+	<div class="unauthenticated-user-area">
+		<div class="user-card">
+			<% if logged_in? %>
+				 <h4><%= link_to @current_user.full_name %></h4>
+				 <p>Join date: <%= @current_user.created_at %></p>
+				 <p>Discussions created: <%= amount_of_discussions_created @current_user %></p>
+				 <p>Community score: 0</p>
+				 <% if @current_user.discussions.present? %>
+				 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
+				 <% end %>
+			 <% else %>
+			 	<span class="glyphicon glyphicon-share-alt"></span>
+				<h4><%= link_to "Log in for User card", sign_in_path %></h4>
+			<% end %>
+		</div>
+	</div>
+	<!-- 									-->
+	<div class="discussions-list">
+		<h1>Discussions</h1>
+		<table class="table">
+			<thead class="thead">
+				<th>Author</th>
+				<th>Subject</th>
+				<th>Date Posted</th>
+				<th>Responses</th>
+				<th>Last Post</th>
+			</thead>
+			<tbody>
+				<% @discussions.each do |discussion| %>
+					<tr>
+						<%= render 'discussions/discussion', discussion: discussion %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>

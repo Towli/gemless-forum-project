@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap/mixins";
 
 @import "variables";
 @import url(https://fonts.googleapis.com/css?family=Alegreya);
@@ -15,7 +16,17 @@
 @import "user_discussions";
 @import "users";
 @import "divider";
-
-
+@import "landing";
+@import "forms";
 
 @import "partials/_buttons";
+
+// TODO: put in better place
+.container {
+	margin-top: 20px;
+}
+
+section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

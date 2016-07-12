@@ -1,8 +1,4 @@
 class DiscussionsController < ApplicationController
-	def index
-		@discussions = Discussion.all.reverse_order
-	end
-
 	def new
 		@discussion = Discussion.new
 	end
