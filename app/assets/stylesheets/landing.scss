@@ -9,13 +9,11 @@
 }
 
 .authenticated-pg-title {
-	@include make-md-column(6);
-	@include make-md-column-offset(2);
-	font-size: 90px; //hardcoded
+	font-size: 70px; //hardcoded
 }
 
 .authenticated-user-area {
-	@include make-md-column(2);
+	@include make-xs-column(2);
 	background-color: inherit;
 }
 
@@ -27,4 +25,14 @@
 
 .user-card-alt {
 	text-align: center;
+}
+
+
+
+.left-content {
+	@include make-xs-column(8);
+	@include make-xs-column-offset(1);
+}
+.right-content {
+	@include make-xs-column(2);
 }

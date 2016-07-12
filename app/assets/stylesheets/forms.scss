@@ -1,6 +1,7 @@
 .discussions-search-form {
 	@extend .form-inline;
-	@include make-sm-column-offset(4);
+	margin-top: 30px;
+	margin-bottom: 20px;
 
 	.discussions_query .form-control {
 		width: 300px;

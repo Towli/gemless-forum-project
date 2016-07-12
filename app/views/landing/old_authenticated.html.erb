@@ -1,0 +1,48 @@
+<div class="container">
+	<div class="header-row">
+		<h1 class="authenticated-pg-title"><%= link_to 'project_forum', root_path %></h1>
+	</div>
+
+	<div class="authenticated-user-area">
+			<div class="user-card-alt">
+				<% if logged_in? %>
+					 <img class="img-lg" src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" alt="Placeholder user">
+					 <h4><%= link_to @current_user.full_name %></h4>
+					 <p>Join date: <%= @current_user.created_at %></p>
+					 <p>Discussions created: <%= amount_of_discussions_created @current_user %></p>
+					 <p>Community score: 0</p>
+					 <% if @current_user.discussions.present? %>
+					 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
+					 <% end %>
+				 <% else %>
+				 	<span class="glyphicon glyphicon-share-alt"></span>
+					<h4><%= link_to "Log in for User card", sign_in_path %></h4>
+				<% end %>
+			</div>
+		</div>
+
+	<%= simple_form_for discussions_path, html: { class: "discussions-search-form"} do |f| %>
+		<%= f.input :query, placeholder: 'Search all discussions', label: false %>
+		<%= f.button :submit, 'Search', class: 'btn btn-search' %>
+	<% end %>
+
+	<div class="discussions-list">
+		<h1>Discussions</h1>
+		<table class="table">
+			<thead class="thead">
+				<th>Author</th>
+				<th>Subject</th>
+				<th>Date Posted</th>
+				<th>Responses</th>
+				<th>Last Post</th>
+			</thead>
+			<tbody>
+				<% @discussions.each do |discussion| %>
+					<tr>
+						<%= render 'discussions/discussion', discussion: discussion %>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

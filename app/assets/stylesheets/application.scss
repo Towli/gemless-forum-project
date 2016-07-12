@@ -30,3 +30,7 @@ section {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+.section-title {
+	@include make-xs-column-offset(2);
+}

@@ -1,3 +1,8 @@
+.container-fluid {
+	@include make-xs-column(10);
+	@include make-xs-column-offset(1);
+}
+
 .navbar {
 	background-color: $grey;
 	margin-bottom: 0;
@@ -7,14 +12,15 @@
 	font-size: 20px;
 }
 
-.navbar-default .navbar-nav > li {
-	
-	a {
-		color: white;
-	}
+.navbar-default {
+	.navbar-nav > li {
+		a {
+			color: white;
+		}
 
-	a:hover {
-	    color: $brand-primary;
+		a:hover {
+		    color: $brand-primary;
+		}
 	}
 }
 

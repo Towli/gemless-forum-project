@@ -53,8 +53,6 @@
 .discussions-list {
 	margin-top: $general-content-margin;
 	margin-bottom: $general-content-margin;
-	@include make-md-column(10);
-	@include make-md-column-offset(1);
 	text-align: center;
 	table > thead > tr > th {
 		color: $dark-grey;
@@ -63,6 +61,13 @@
 	p {
 		color: $dark-grey;
 	}
+	padding: 0;
+}
+
+.recent-discussions-list {
+	@extend .discussions-list;
+	@include make-xs-column(8);
+	@include make-xs-column-offset(2);
 }
 
 .discussion-actions {
