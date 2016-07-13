@@ -2,14 +2,12 @@
 	<div class="container text-center">
 		<h1>Sign in</h1>
 		<p>sessions#new</p>
+		<div class="login-form">
+			<%= simple_form_for :session, url: 'sign_in' do |f| %>
+				<%= f.input :email, label: 'Email' %>
+				<%= f.input :password %>
+				<%= f.button :submit, 'Sign in', class: 'btn btn-create' %>
+			<% end %>
+		</div>
 	</div>
-
-	<div class="login-form form-horizontal col-md-4 col-md-offset-4">
-		<%= simple_form_for :session, url: 'sign_in' do |f| %>
-			<%= f.input :email, label: 'Email' %>
-			<%= f.input :password %>
-			<%= f.button :submit, 'Sign in' %>
-		<% end %>
-	</div>
-
 </div>

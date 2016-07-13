@@ -19,7 +19,7 @@
 		<h4>Reply</h4>
 		<%= simple_form_for :reply, url: replies_path(discussion_id: @discussion.id, post_id: reply.id) do |f| %>
 			<%= f.input :content, as: :text, placeholder: 'Reply to this post' %>
-			<%= f.button :submit, 'Reply to Post' %>
+			<%= f.button :submit, 'Reply to Post', class: 'btn btn-create' %>
 		<% end %>
 	</div>
 

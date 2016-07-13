@@ -7,3 +7,13 @@
 		width: 300px;
 	}
 }
+
+.login-form {
+	@extend .form-horizontal;
+	@include make-xs-column(4);
+	@include make-xs-column-offset(4);
+}
+
+.post-reply-form {
+	@extend .form-horizontal;
+}

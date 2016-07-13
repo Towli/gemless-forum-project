@@ -28,7 +28,7 @@
 	<h2>Discuss</h2>
 	<%= simple_form_for :post, url: posts_path(discussion_id: @discussion.id) do |f| %>
 		<%= f.input :content, as: :text, placeholder: 'Reply to this discussion' %>
-		<%= f.button :submit, 'Reply to Discussion' %>
+		<%= f.button :submit, 'Reply to Discussion', class: 'btn btn-create' %>
 	<% end %>
 </div>
 
