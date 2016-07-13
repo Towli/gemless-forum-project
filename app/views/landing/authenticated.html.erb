@@ -1,6 +1,5 @@
 <div class="container">
 	<div class="row">
-
 		<div class="left-content">
 			<h1 class="authenticated-pg-title"><%= link_to 'project_forum', root_path %></h1>
 			<%= simple_form_for discussions_path, html: { class: "discussions-search-form"} do |f| %>
@@ -30,7 +29,7 @@
 			<div class="user-card-alt">
 				<% if logged_in? %>
 					 <img class="img-lg" src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" alt="Placeholder user">
-					 <h4><%= link_to @current_user.full_name %></h4>
+					 <h4><%= link_to @current_user.full_name, @current_user %></h4>
 					 <% if @current_user.discussions.present? %>
 					 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
 					 <% end %>

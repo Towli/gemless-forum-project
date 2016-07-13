@@ -1,15 +1,17 @@
-<div class="profile-container">
-	<% if profile_owner? @user %>
-		<%= link_to "Edit", edit_user_path, class: 'btn-edit' %>
-		<span class="glyphicon glyphicon-pencil"></span>
-	<% end %>
-	<h1><%= @user.full_name %></h1>
-	<%= image_tag "http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png", class: 'img-lg' %>
-	<p><%= @user.email %></p>
-	<p><%= @user.created_at %></p>
-	<hr>
-	<div class="about-me">
-		<h4>About Me</h4>
-		<p><%= @user.bio %></p>
+<div class="container">
+	<div class="profile-container">
+		<% if profile_owner? @user %>
+			<%= link_to "Edit", edit_user_path, class: 'btn-edit' %>
+			<span class="glyphicon glyphicon-pencil"></span>
+		<% end %>
+		<h1><%= @user.full_name %></h1>
+		<%= image_tag "http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png", class: 'img-lg' %>
+		<p><%= @user.email %></p>
+		<p><%= @user.created_at %></p>
+		<hr>
+		<div class="about-me">
+			<h4>About Me</h4>
+			<p><%= @user.bio %></p>
+		</div>
 	</div>
 </div>

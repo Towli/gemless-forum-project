@@ -16,7 +16,7 @@
 	<% if discussion.posts.empty? %>
 		-
 	<% else %>
-		<p>By <%= link_to discussion.posts.first.user.full_name %></p>
+		<p>By <%= link_to discussion.posts.first.user.full_name, discussion.posts.first.user %></p>
 		<img src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" class="img-circle img-sm">
 	<% end %>
 </td>

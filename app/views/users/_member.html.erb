@@ -1,0 +1,11 @@
+<div class="member-card">
+	<img class="img-lg" src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" alt="Placeholder user">
+		 <h4><%= link_to member.full_name, member %></h4>
+		 <% if member.discussions.present? %>
+		 	<p>
+			 	<span class="glyphicon glyphicon-star"></span>
+			 	<%= link_to 'Starred Discussion', discussion_path(starred_discussion member) %>
+			 	<span class="glyphicon glyphicon-star"></span>
+		 	</p>
+	 	<% end %>
+</div>
