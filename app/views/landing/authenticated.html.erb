@@ -28,7 +28,7 @@
 		<div class="right-content">
 			<div class="user-card-alt">
 				<% if logged_in? %>
-					 <img class="img-lg" src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" alt="Placeholder user">
+					 <%= link_to image_tag("http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png", class: "user-avatar"), @current_user %>
 					 <h4><%= link_to @current_user.full_name, @current_user %></h4>
 					 <% if @current_user.discussions.present? %>
 					 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>

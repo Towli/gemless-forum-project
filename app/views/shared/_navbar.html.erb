@@ -17,7 +17,7 @@
 					<li><%= link_to 'Create Discussion', new_discussion_path %></li>
 				<% end %>
 				<li><%= link_to 'Members', users_path %></li>
-				<li class="WIP"><%= link_to 'Boards' %></li>
+				<li class="WIP"><%= link_to 'Boards', "#" %></li>
 				<% if logged_in? %>
 					<li><%= link_to "Profile", @current_user %></li>
 					<li><%= link_to "My Discussions", user_discussions_path(@current_user) %></li>
