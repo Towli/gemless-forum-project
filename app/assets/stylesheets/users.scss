@@ -64,7 +64,7 @@
 .user-avatar {
 	@extend .img-lg;
 	&:hover {
-		-webkit-filter: saturate(7);
-		filter: saturate(7);
+		-webkit-filter: blur(3px);
+		filter: blur(3px);
 	}
 }

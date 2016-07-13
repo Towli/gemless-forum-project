@@ -1,38 +1,28 @@
-	<h1 class="pg-title"><%= link_to 'project_forum', root_path %></h1>
-	<!-- TODO: place user-card in a partial -->
-	<div class="user-area">
-		<div class="user-card">
-			<% if logged_in? %>
-				 <h4><%= link_to @current_user.full_name %></h4>
-				 <p>Join date: <%= @current_user.created_at %></p>
-				 <p>Discussions created: <%= amount_of_discussions_created @current_user %></p>
-				 <p>Community score: 0</p>
-				 <% if @current_user.discussions.present? %>
-				 	<p><span class="glyphicon glyphicon-star"></span><%= link_to 'Starred Discussion', discussion_path(starred_discussion @current_user) %><span class="glyphicon glyphicon-star"></span></p>
-				 <% end %>
-			 <% else %>
-			 	<span class="glyphicon glyphicon-share-alt"></span>
-				<h4><%= link_to "Log in for User card", sign_in_path %></h4>
+<div class="container text-center">
+	<%= link_to "← go back", root_path, class: 'btn btn-search' %>
+	<h1>Filtered Discussions</h1>
+			<%= form_tag('/discussions', method: 'get', class: 'discussions-search-form') do %>
+				<%= text_field_tag 'query', nil, placeholder: 'Search all discussions', class: 'form-control' %>
+				<%= submit_tag 'Search', class: 'btn btn-search' %>
 			<% end %>
+	<div class="filtered-discussions">
+		<div class="discussions-list">
+			<table class="table">
+				<thead class="thead">
+					<th>Author</th>
+					<th>Subject</th>
+					<th>Date Posted</th>
+					<th>Responses</th>
+					<th>Last Post</th>
+				</thead>
+				<tbody>
+					<% @discussions.each do |discussion| %>
+						<tr>
+							<%= render 'discussions/discussion', discussion: discussion %>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</div>
-	<!-- 									-->
-	<div class="discussions-list">
-		<h1>Topics</h1>
-		<table class="table">
-			<thead class="thead">
-				<th>Author</th>
-				<th>Subject</th>
-				<th>Date Posted</th>
-				<th>Responses</th>
-				<th>Last Post</th>
-			</thead>
-			<tbody>
-				<% @discussions.each do |discussion| %>
-					<tr>
-						<%= render 'discussions/discussion', discussion: discussion %>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+</div>

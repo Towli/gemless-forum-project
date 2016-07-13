@@ -15,4 +15,9 @@
 class Discussion < ActiveRecord::Base
 	belongs_to :user
 	has_many :posts
+
+	def self.filter(query)
+		Discussion.where("subject LIKE ? OR content LIKE ?", "%#{query}%", "%#{query}%")
+	end
+
 end

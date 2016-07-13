@@ -7,6 +7,10 @@ class DiscussionsController < ApplicationController
 		@discussion = Discussion.find(params[:id])
 	end
 
+	def index
+		@discussions = Discussion.filter(params[:query])
+	end
+
 	def create
 		@discussion = Discussion.new(discussion_params)
 		if @discussion.save

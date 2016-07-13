@@ -111,3 +111,9 @@
 	margin: auto;
 	width: 500px;
 }
+
+// Filtered discussions page
+.filtered-discussions {
+	@include make-xs-column(6);
+	@include make-xs-column-offset(3);
+}

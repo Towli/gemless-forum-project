@@ -2,9 +2,9 @@
 	<div class="row">
 		<div class="left-content">
 			<h1 class="authenticated-pg-title"><%= link_to 'project_forum', root_path %></h1>
-			<%= simple_form_for discussions_path, html: { class: "discussions-search-form"} do |f| %>
-				<%= f.input :query, placeholder: 'Search all discussions', label: false %>
-				<%= f.button :submit, 'Search', class: 'btn btn-search' %>
+			<%= form_tag('/discussions', method: 'get', class: 'discussions-search-form') do %>
+				<%= text_field_tag 'query', nil, placeholder: 'Search all discussions', class: 'form-control' %>
+				<%= submit_tag 'Search', class: 'btn btn-search' %>
 			<% end %>
 			<div class="discussions-list">
 				<table class="table">
