@@ -35,19 +35,36 @@
 	width: 600px;
 }
 
-// members page
+// members page ---------------
 
 //flexbox grid container
 .members-list-grid {
 	margin: 20px auto;
-	padding: 20px;
 	display: flex;
 	flex-direction: row;
-	width: 600px;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	width: 600px;
+	
+	@include app-md {
+		width: 400px;
+	}
+
+	&:after {
+		width: 200px;
+		content: "";
+	}
 }
 
 .member-card {
+	width: 200px;
+	padding: 20px;
+}
 
+.user-avatar {
+	@extend .img-lg;
+	&:hover {
+		-webkit-filter: saturate(7);
+		filter: saturate(7);
+	}
 }
