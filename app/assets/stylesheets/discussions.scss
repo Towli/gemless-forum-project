@@ -64,6 +64,12 @@
 	padding: 0;
 }
 
+.my-discussions-list {
+	@extend .discussions-list;
+	@include make-xs-column(8);
+	@include make-xs-column-offset(2);
+}
+
 .recent-discussions-list {
 	@extend .discussions-list;
 	@include make-xs-column(8);
@@ -91,7 +97,7 @@
 .discussion-post-form {
 	margin: 0 auto;
 	width: 500px;
-	padding: 2em;
+	padding: 0 2em;
 
 	textarea {
 		resize: vertical;

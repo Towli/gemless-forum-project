@@ -9,10 +9,10 @@
 	</h4> 
 	<p><%= reply.content %></p>
 	<div class="discussion-post-actions">
-		<a class="reply-link" id="<%= reply.id %>">Reply</a>
+		<a class="reply-link btn-create" id="<%= reply.id %>">Reply</a>
 		<% if post_owner? reply.user %>
 			<!-- TODO: THIS LINK -->
-			<%= link_to 'Delete', post_path(id: reply.id), data: { confirm: 'Are you sure?' }, method: :delete %>
+			<%= link_to 'Delete', post_path(id: reply.id), class: 'btn-destroy', data: { confirm: 'Are you sure?' }, method: :delete %>
 		<% end %></p>
 	</div>
 	<div class="post-reply-form" id="<%= reply.id %>">

@@ -5,9 +5,9 @@
 	</h4> 
 	<p><%= post.content %></p>
 	<div class="discussion-post-actions">
-		<a class="reply-link" id="<%= post.id %>">Reply</a>
+		<a class="reply-link btn btn-create" id="<%= post.id %>">Reply</a>
 		<% if post_owner? post.user %>
-			<%= link_to 'Delete', post_path(id: post.id), data: { confirm: 'Are you sure?' }, method: :delete %>
+			<%= link_to 'Delete', post_path(id: post.id), class: 'btn-destroy', data: { confirm: 'Are you sure?' }, method: :delete %>
 		<% end %></p>
 	</div>
 	<div class="post-reply-form" id="<%= post.id %>">

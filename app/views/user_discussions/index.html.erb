@@ -1,17 +1,45 @@
-<div class="container">
-	<div class="user-discussions">
-			<h1>My Discussions</h1>
-			<% if @discussions.empty? %>
-				<p>You have not started any discussions yet.</p>
-				<%= link_to 'Start a Discussion', new_discussion_path %>
-			<% end %>
-			<ul class="media-list">
-				<% @discussions.each do |discussion| %>
-					<li class="media">
-						<%= render 'shared/divider' %>
-						<%= render 'discussions/discussion', discussion: discussion %>
-					</li>
-				<% end %>
-			</ul>
-	</div>
+<div class="container text-center">
+	<h1>My Discussions</h1>
+	<% if @discussions.empty? %>
+		<p>You have not started any discussions yet.</p>
+		<%= link_to 'Start a Discussion', new_discussion_path, class: 'btn btn-create' %>
+	<% end %>
+		<div class="my-discussions-list">
+			<table class="table">
+				<thead class="thead">
+					<th>Actions</th>
+					<th>Subject</th>
+					<th>Date Posted</th>
+					<th>Responses</th>
+					<th>Last Post</th>
+				</thead>
+				<tbody>
+					<% @discussions.reverse.each do |discussion| %>
+						<tr>
+							<td>
+								<%= button_to 'View', discussion, method: 'get', class: 'btn btn-create' %>
+							</td>
+							<td>
+								<p><%= link_to discussion.subject, discussion_path(discussion) %></p>
+								<p><%= truncate(discussion.content, length: 40) %></p>
+							</td>
+							<td>
+								<p><%= created_at_humanized(discussion.created_at) %></p>
+							</td>
+							<td>	
+								<p><%= discussion.replies %></p>
+							</td>
+							<td>
+								<% if discussion.posts.empty? %>
+									-
+								<% else %>
+									<p>By <%= link_to discussion.posts.first.user.full_name, discussion.posts.first.user %></p>
+									<img src="http://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png" class="img-circle img-sm">
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 </div>
